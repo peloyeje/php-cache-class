@@ -1,16 +1,14 @@
 <?php
 
 /**
-* Copyright (C) 2015 FeatherBB
+* Copyright (C) 2015
 * @author capkokoon / kokoon@protonmail.ch
 * based on logic by Christian Metz - MetzWeb Networks
 * License: GPL v2 http://www.gnu.org/licenses/old-licenses/gpl-2.0.fr.html
 *
-* FeatherBB Cache class
-* Usage : $cache = new \FeatherBB\Cache(array('name' => , 'path' =>, 'extension' =>));
+* Cache class
+* Usage : $cache = new \Cache(array('name' => , 'path' =>, 'extension' =>));
 */
-
-namespace FeatherBB;
 
 class Cache
 {
