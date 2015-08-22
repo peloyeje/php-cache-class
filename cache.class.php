@@ -79,11 +79,16 @@ class Cache
     *
     * @param string $key
     * @param mixed $data
-    * @param integer [optional] $expires
+    * @param mixed [optional] $expires / TTL of the data in seconds
     * @return self
     */
     public function store($key, $data, $expires = 0)
     {
+        if (is_string($expires)) {
+            if (intval($expires) > 0) {
+                $expires = strtotime($expires, 0);
+            }
+        }
         $new_data = array(
             'time' => time(),
             'expire' => (int) $expires,
@@ -104,8 +109,7 @@ class Cache
     * Retrieve cached data by key
     *
     * @param string $key
-    * @param boolean [optional] $timestamp
-    * @return string
+    * @return mixed
     */
     public function retrieve($key)
     {
@@ -171,12 +175,12 @@ class Cache
         $cache = $this->_loadCache();
         if (is_array($cache)) {
             $i = 0;
-            $cache = array_map(function ($value) {
-                        if (!$this->_isExpired($value['time'], $value['expire'])) {
-                            ++$i;
-                            return $value;
-                        }
-                        });
+            foreach ($cache as $key => $value) {
+                if ($this->_isExpired($value['time'], $value['expire'])) {
+                    unset($cache[$key]);
+                    ++$i;
+                }
+            }
             if ($i > 0) {
                 $this->_saveCache($cache);
             }
