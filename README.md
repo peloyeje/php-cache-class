@@ -1,4 +1,4 @@
-# PHP Cache Class v.1.0
+# PHP Cache Class
 A lightweight php caching class, massive rewrite of cosenary's cache class (link)
 **Supported caches :** filesystem
 Used for instance in [FeatherBB](http://featherbb.org)
@@ -7,7 +7,7 @@ Used for instance in [FeatherBB](http://featherbb.org)
 * PHP 5.3
 
 # Changelog
-##v.1.0
+#### v.1.0
 * Code rewrite : settings storage, internal cache handling
 * Add increment, decrement functions
 
