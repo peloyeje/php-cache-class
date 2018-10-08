@@ -3,17 +3,17 @@ A lightweight php caching class, massive rewrite of cosenary's cache class (link
 **Supported caches :** filesystem
 Used for instance in [FeatherBB](http://featherbb.org)
 
-# Requirements
+### Requirements
 * PHP 5.3
 
-# Changelog
-#### v.1.0
-* Code rewrite : settings storage, internal cache handling
-* Add increment, decrement functions
+### Changelog
+- **v.1.0**
+	- Code rewrite : settings storage, internal cache handling
+	- Add increment, decrement functions
 
-# Let's see some code
+### Let's see some code
 
-```
+```php
 $cache = new Cache(array('name' => 'filecache',
 						 'path' => 'cache/',
 						 'extension' => '.cache'));
@@ -31,6 +31,6 @@ $cache->getSettings();
 $cache->flush();
 ```
 
-# Credits
+### Credits
 
 Thanks to cosenary for parts of the code logic
